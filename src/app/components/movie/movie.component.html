@@ -1,0 +1,39 @@
+
+
+<app-navbar></app-navbar>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 class="text-danger ms-4 mt-2"><b>All Movies</b></h1>
+
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <!-- Row container for movie cards -->
+            <div class="row">
+                <div class="col-md-3"  *ngFor="let movie of movies" style="align-items: center;text-align: center;">
+                    <a class="btn-danger" routerLink="/movie/movie-moviedetails/{{movie.movieId}}">
+                    <img src={{movie.movieImagePath}} alt="Unable to Load!" class="img-rounded" style="width: 250px; height: 350px;border-radius: 3px;border:solid 1px rgb(230, 58, 58)"/>
+                    </a>
+                    <h4 class="mt-2">{{movie.movieName}}</h4>
+                     <!-- Book Tickets Button -->
+            <button  type="button"  class="btn btn-danger btn-md"  (click)="bookTicket(movie)"> Book Tickets </button>
+                    <strong><hr></strong><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- <div>
+        <video width="320" height="240" controls>
+            <source src="assets/Images/videos/Pushpana_flowernu_nenachiya.mp4"type="video/mp4"/>  
+            Your browser does not support the video tag.
+              </video>
+    </div> -->
+
+
+<app-footer></app-footer>

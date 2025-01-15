@@ -1,0 +1,65 @@
+.movie-details {
+  display: flex;
+  flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+  background-color: rgb(222, 170, 170);
+  border-radius: 15px;
+  padding: 20px;
+  gap: 20px; /* Adds spacing between elements */
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.movie-image {
+  flex: 1; /* Takes up space proportionally */
+  max-width: 250px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.movie-image img {
+  width: 100%; /* Ensures the image scales responsively */
+  height: auto;
+  border-radius: 15px;
+  border: solid 5px rgb(243, 242, 241);
+}
+
+.movie-text {
+  flex: 2; /* Takes up more space proportionally */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px; /* Adds spacing between text elements */
+}
+
+.movie-video {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.movie-video video {
+  max-width: 100%; /* Ensures video scales responsively */
+  height: auto;
+  border-radius: 15px;
+  border: solid 5px rgb(203, 46, 59);
+}
+
+h2 {
+  margin: 5px 0;
+  font-size: 1.2rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Align buttons left and right */
+  margin-top: 5px;
+  gap: 5px; /* Adds spacing between buttons */
+}
+
+.button-container button {
+  padding: 5px 5px;
+  font-size: 1rem;
+  border-radius: 10px;
+  width: 48%; /* Ensure buttons take equal width */
+}
+
+

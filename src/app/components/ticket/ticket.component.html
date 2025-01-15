@@ -1,0 +1,119 @@
+
+<app-navbar></app-navbar>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container mt-5">
+  <h2 class="text-center text-danger mb-4"><b>Book Ticket</b></h2>
+
+  <div class="card p-4">
+    <!-- Display Movie Details -->
+    <div class="mb-3">
+      <h4><strong>Movie Name:</strong> {{ movieName }}</h4>
+      <h5><strong>Price:</strong> ₹{{ moviePrice }}</h5>
+      <p><strong>Movie ID:</strong> {{ movieId }}</p>
+    </div>
+
+    <!-- Ticket Booking Form -->
+    <form #bookpay="ngForm" (ngSubmit)="onSubmit()">
+      <!-- Number of Seats -->
+      <div class="mb-3">
+        <label for="seats" class="form-label">Number of Seats</label>
+        <select
+          id="seats"
+          class="form-control"
+          [(ngModel)]="ticket.ticketSeats"
+          name="ticketSeats"
+          #ticketSeats="ngModel"
+          (ngModelChange)="onSeatsChange()"
+          required
+        >
+          <option value="" disabled selected>Select number of seats</option>
+          <option [value]="1">1</option>
+          <option [value]="2">2</option>
+          <option [value]="3">3</option>
+          <option [value]="4">4</option>
+          <option [value]="5">5</option>
+        </select>
+      </div>
+
+      <!-- Date and Time -->
+      <div class="mb-3">
+        <label for="datetime" class="form-label">Date & Time</label>
+        <input
+          type="datetime-local"
+          id="datetime"
+          class="form-control"
+          [(ngModel)]="ticket.ticketMovieTimeDate"
+          name="ticketMovieTimeDate"
+          #ticketMovieTimeDate="ngModel"
+          required
+        />
+      </div>
+
+      <!-- Theater Name -->
+      <div class="mb-3">
+        <label for="theaterName" class="form-label">Theater Name</label>
+        <select
+          id="theaterName"
+          name="ticketTheaterName"
+          [(ngModel)]="ticket.ticketTheaterName"
+          class="form-control"
+          #ticketTheaterName="ngModel"
+          required
+        >
+          <option value="Bhramaramba 70MM A/C 4K Dolby: Kukatpally">Bhramaramba 70MM A/C 4K Dolby: Kukatpally</option>
+          <option value="AMB Cinemas: Gachibowli">AMB Cinemas: Gachibowli</option>
+          <option value="Arjun 70MM: Kukatpally">Arjun 70MM: Kukatpally</option>
+          <option value="Asian Jyothi: RC Puram">Asian Jyothi: RC Puram</option>
+          <option value="Asian Lakshmikala Cinepride: Moosapet">Asian Lakshmikala Cinepride: Moosapet</option>
+          <option value="Mallikarjuna 70mm A/C DTS: Kukatpally">Mallikarjuna 70mm A/C DTS: Kukatpally</option>
+        </select>
+      </div>
+
+      <!-- Theater Location -->
+      <div class="mb-3">
+        <label for="theaterLocation" class="form-label">Theater Location</label>
+        <select
+          id="theaterLocation"
+          name="ticketTheaterLocation"
+          [(ngModel)]="ticket.ticketTheaterLocation"
+          class="form-control"
+          #ticketTheaterLocation="ngModel"
+          required
+        >
+          <option value="Bhramaramba 70MM A/C 4K Dolby: Kukatpally">Bhramaramba 70MM A/C 4K Dolby: Kukatpally</option>
+          <option value="AMB Cinemas: Gachibowli">AMB Cinemas: Gachibowli</option>
+          <option value="Arjun 70MM: Kukatpally">Arjun 70MM: Kukatpally</option>
+          <option value="Asian Jyothi: RC Puram">Asian Jyothi: RC Puram</option>
+          <option value="Asian Lakshmikala Cinepride: Moosapet">Asian Lakshmikala Cinepride: Moosapet</option>
+          <option value="Mallikarjuna 70mm A/C DTS: Kukatpally">Mallikarjuna 70mm A/C DTS: Kukatpally</option>
+        </select>
+      </div>
+
+      <!-- Total Price -->
+      <div class="mb-3">
+        <label for="totalPrice" class="form-label">Total Price</label>
+        <input
+          type="text"
+          id="ticketTotalPrice"
+          name="ticketTotalPrice"
+          #ticketTotalPrice="ngModel"
+          class="form-control"
+          [(ngModel)]="ticket.ticketTotalPrice"
+          [value]="ticket.ticketTotalPrice | currency: 'INR'"
+          readonly
+        />
+      </div>
+
+      <!-- Buttons for Actions -->
+      <div class="button-container">
+        <button class="btn btn-info text-white" (click)="cancelTicket()">Cancel Ticket</button>
+        <button class="btn btn-danger text-white" (click)="bookingpayment()" [disabled]="bookpay.invalid">Booking Ticket</button>
+      </div>
+    </form>
+  </div>
+</div>

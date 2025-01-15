@@ -1,0 +1,99 @@
+<app-navbar></app-navbar>
+<br>
+<br>
+<br>
+<br>
+
+<div style="background-color: #f6f9fb;">
+
+<app-carousel></app-carousel>
+
+
+
+
+
+
+
+
+
+
+
+ <div class="section-content section-content-p30">
+  <div class="container">
+    <h1 class=" text-danger mt-3 "><strong>Recommended Movies</strong></h1>
+    <div class="row">
+      <div class="d-flex overflow-auto" style="scrollbar-width: none ; ">
+
+        <div class="card me-2" style="min-width: 18rem; align-items: center;background-color :#f6f9fb;border:none;" *ngFor="let movie of dummymovies" >
+            <a class="goToMovieDetails" routerLink="/home/home-moviedetails/{{movie.movieId}}">
+          <img src="../assets/Images/movieImg/{{movie.movieImagePath}}" class="card-img-m mt-1" alt="Card Image" style="width: 245px; height: 319px; border-radius:10px;">
+        </a>
+          <div class="card-body">
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <h1 class=" text-danger ms-5 mt-3"><strong>Telugu Movies</strong></h1>
+  <div class="main-content">
+    <div class="section-content section-content-p30">
+      <div class="container-fluid ms-5 me-5 mt-2">
+        <!-- Row container for movie cards -->
+        <div class="row">
+          <div 
+            class="col-md-2" 
+            style="min-width: 18rem; align-items: center; text-align: center;" 
+            *ngFor="let movie of movies">
+            <!-- Movie Image -->
+            <a class="goToLoginpage" routerLink="/login">
+              <!-- <a class="btn-danger" routerLink="/movie/movie-moviedetails/{{movie.movieId}}"> -->
+
+            <img 
+              [src]="movie.movieImagePath" 
+              alt="Unable to Load!" 
+              class="img-rounded" 
+              style="width: 250px; height: 350px; border-radius:10px;"
+            />
+            </a>
+            <!-- Movie Name -->
+            <h3><b>{{movie.movieName}}</b></h3>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<h1 class=" text-danger ms-5 mt-3"><strong>English-Hind Movies</strong></h1>
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid ms-5 me-5 mt-2">
+            <!-- Row container for movie cards -->
+            <div class="row" >
+                <div class="col-md-2"  style="min-width: 18rem; align-items: center; text-align: center;" *ngFor="let movie of dummymovies" >
+                  <a class="goToLoginpage" routerLink="/login">
+                    <img src="assets/Images/movieImg/{{movie.movieImagePath}}" alt="Unable to Load!" class="img-rounded" style="width: 250px; height: 350px;border-radius:10px;"/>
+                  </a>
+                    <h3 class="text-danger"><b>{{movie.movieName}}</b></h3>
+                    
+                    <!-- <form #bookform="ngForm" novalidate>
+                        <button type="button" class="btn btn-danger btn-md" (click)="booktickets()">Book Tickets</button>
+                    </form><strong><hr></strong><br> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br><br><br><br>
+
+<app-footer></app-footer>
+</div>

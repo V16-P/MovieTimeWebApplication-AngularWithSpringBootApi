@@ -1,0 +1,88 @@
+<div class="container">
+    <h2 class="text-center text-danger"><b>Booking Payment</b></h2>
+    
+    <!-- Ticket Details Section -->
+    <div class="ticket-details">
+        <h4>Ticket Details</h4>
+        <p><strong>Ticket ID:</strong> {{ ticketId }}</p>
+        <p><strong>Ticket Total Price:</strong> {{ ticketTotalPrice  | currency:'INR' }}</p>
+      </div>
+  
+    <hr />
+  
+    <!-- Payment Methods -->
+    <div class="payment-methods">
+      <h4>Select Payment Method</h4>
+      
+      <!-- UPI Payment -->
+      <div class="form-group">
+        <label><strong>UPI Payments<span class="text-danger">*</span></strong></label>
+        <div class="d-flex">
+          <select class="form-control mr-2" 
+            name="payment type"
+            [(ngModel)]="booking.bookingPaymentType"
+            placeholder="select UpI Type"
+            required
+          >
+            <option value="Google Pay">Google Pay</option>
+            <option value="PhonePe">PhonePe</option>
+            <option value="AmazonPay">AmazonPay</option>
+            <option value="Paytm">Paytm</option>
+          </select>
+          <input type="text" class="form-control" placeholder="Enter UPI ID" />
+        </div>
+      </div>
+  
+      <hr />
+  
+      <!-- Internet Banking -->
+      <div class="form-group">
+        <label><strong>Internet Banking</strong><span class="text-danger">*</span></label>
+        <div>
+          <label class="mr-2">
+            <input type="radio" name="bank" value="SBI" /> SBI
+          </label>
+          <label class="mr-2">
+            <input type="radio" name="bank" value="Axis" /> Axis
+          </label>
+          <label class="mr-2">
+            <input type="radio" name="bank" value="HDFC" /> HDFC
+          </label>
+        </div>
+        <div class="d-flex mt-2">
+          <input type="text" class="form-control mr-2" placeholder="User ID" />
+          <input type="password" class="form-control" placeholder="Password" />
+        </div>
+      </div>
+  
+      <hr />
+  
+      <!-- Card Payment -->
+      <div class="form-group">
+        <label><strong>Card Details</strong><span class="text-danger">*</span></label>
+        <div class="d-flex flex-wrap">
+          <input type="text" class="form-control mr-2 mb-2" placeholder="Enter Card Number" />
+          <input type="text" class="form-control mr-2 mb-2" placeholder="Expiry Date (MM/YY)" />
+          <input type="text" class="form-control mr-2 mb-2" placeholder="Enter CVV" />
+          <input type="text" class="form-control mb-2" placeholder="Cardholder Name" />
+        </div>
+      </div>
+    </div>
+  
+    <hr />
+
+    <div class="form-group">
+        
+        <p><strong>bookingTotalAmount:</strong>{{ ticketTotalPrice | currency:'INR'}}</p>
+
+
+      </div>
+
+      <hr/>
+  
+    <!-- Payment Action -->
+    <div class="text-center">
+        <button class="btn btn-lg btn-success" (click)="pay()">Pay Now</button>
+      </div>
+  </div>
+  

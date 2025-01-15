@@ -1,0 +1,37 @@
+.container {
+    max-width: 750px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .ticket-details {
+    margin-bottom: 20px;
+  }
+  
+  .payment-methods {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .d-flex {
+    display: flex;
+  }
+  
+  .d-flex input,
+  .d-flex select {
+    flex: 1;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  button {
+    padding: 10px 20px;
+  }
+  

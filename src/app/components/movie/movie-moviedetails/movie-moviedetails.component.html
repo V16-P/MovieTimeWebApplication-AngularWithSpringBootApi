@@ -1,0 +1,42 @@
+<div class="container mt-5" *ngIf="movieDeatials">
+  <div class="movie-details">
+    <!-- Image Section -->
+    <div class="movie-image">
+      <img 
+        [src]="movieDeatials.movieImagePath" 
+        alt="Unable to Load!" 
+      />
+       <!-- Buttons Section -->
+  <div class="button-container">
+    <button class="btn btn-info text-white" (click)="goBack()">Back</button>
+
+    <button class="btn btn-danger text-white" (click)="bookTicket(movieDeatials)">BookTicket</button>
+
+  </div>
+  
+    </div>
+
+    <!-- Text Section -->
+    <div class="movie-text">
+      <h2><b class="text-danger">Name:&ensp;</b>{{movieDeatials.movieName}}</h2>
+      <h2><b class="text-danger">Language:&ensp;</b>{{movieDeatials.movieLanguageCategory}}</h2>
+      <h2><b class="text-danger">Price:&ensp;</b>{{movieDeatials.moviePrice}}</h2>
+      <h2><b class="text-danger">Genre:&ensp;</b>{{movieDeatials.movieGenreCategory}}</h2>
+      <h2><b class="text-danger">Content:&ensp;</b>{{movieDeatials.movieContent}}</h2>
+    </div>
+  </div>
+
+ 
+
+  <!-- Video Section -->
+  <div class="movie-video">
+    <video controls>
+      <source [src]="movieDeatials.movieVideoPath" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+<div *ngIf="!movieDeatials" class="alert alert-warning">
+  Movie details not found.
+</div>

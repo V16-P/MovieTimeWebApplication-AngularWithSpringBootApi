@@ -1,0 +1,54 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">🎟️ Ticket Receipt</h2>
+  <div class="card shadow-lg p-4">
+    <!-- Header Section -->
+    <div class="text-center">
+      <h3 class="card-title">Receipt Details</h3>
+      <hr />
+    </div>
+
+    <!-- Ticket Details -->
+    <div class="row">
+      <div class="col-md-6 mt-5 ">
+        <p><strong>Booking ID:</strong> {{ bookingId }}</p>
+        <p><strong>Ticket ID:</strong> {{ ticketDetails.ticketId }}</p>
+        <p><strong>Ticket Seats:</strong> {{ ticketDetails.ticketSeats }}</p>
+        <p><strong>Ticket Theater Location:</strong> {{ ticketDetails.ticketTheaterLocation }}</p>
+      </div>
+      <div class="col-md-6 text-center">
+        <p><strong>Movie Image:</strong></p>
+        <img
+          [src]="ticketDetails.movieImage"
+          alt="Movie Image"
+          class="img-fluid rounded shadow mb-3"
+          style="max-height: 200px; object-fit: cover;"
+        />
+        <p><strong>Movie Name:</strong> {{ ticketDetails.movieName }}</p>
+
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- Price Details -->
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Movie Price:</strong> ₹{{ ticketDetails.moviePrice }}</p>
+        <p><strong>Ticket Total Price:</strong> ₹{{ ticketDetails.ticketTotalPrice }}</p>
+      </div>
+      <div class="col-md-6 text-center ">
+        <p class="text-success">
+          <strong>Booking Total Amount:</strong> ₹{{ booking.bookingTotalAmount }}
+        </p>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- Footer Section -->
+    <div class="d-flex justify-content-between">
+      <a class="btn btn-primary btn-lg" (click)="goHome()">Home</a>
+      <button class="btn btn-danger btn-lg">Download Receipt</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<!-- <div *ngIf="movieDeatials">
+  <img *ngIf="movieDeatials.movieImagePath" 
+       [src]="'../assets/Images/movieImg/' + movieDeatials.movieImagePath" 
+       alt="Unable to Load!" 
+       class="img-rounded" 
+       style="width: 250px; height: 350px"/>
+
+  <h4>{{movieDeatials.movieName}}</h4> 
+  <h2>{{movieDeatials.movieLanguageCategory}}</h2>
+  <h2>{{movieDeatials.moviePrice}}</h2>
+  <h2>{{movieDeatials.movieGenreCategory}}</h2>
+
+  <video *ngIf="movieDeatials.movieVideoPath" width="320" height="240" controls>
+    <source [src]="'../assets/Images/videos/' + movieDeatials.movieVideoPath" type="video/mp4"/>
+    Your browser does not support the video tag.
+  </video>
+
+  <h2>{{movieDeatials.movieContent}}</h2>
+</div> -->
+<app-navbar></app-navbar>
+<br>
+<br>
+<br>
+<br>
+                             <!-- dummymovie -->
+<div class="container mt-5">
+
+  <div class="movie-details mt-4" style="background-color: rgb(222, 170, 170); border-radius: 15px;">
+    <!-- Image on the left -->
+    <div class="movie-image ms-2 mt-2">
+      <img *ngIf="dummymovieDeatials.movieImagePath" 
+           [src]="'../assets/Images/movieImg/' + dummymovieDeatials.movieImagePath" 
+           alt="Unable to Load!" 
+           class="img-rounded" 
+           style="width: 250px; height: 350px ; border-radius: 15px;"/>
+           <a class="btn btn-danger m-2 ms-4"  routerLink="/login" style="width: 205px;"><b>Book Ticket</b></a>
+           
+    </div>
+
+    <!-- Text on the right -->
+    <div class="movie-text">
+      <h2><b class="text-danger">Name:&ensp;</b>{{dummymovieDeatials.movieName}}</h2> 
+      <h2><b class="text-danger">Language:&ensp;</b>{{dummymovieDeatials.movieLanguageCategory}}</h2>
+      <h2><b class="text-danger">Price:&ensp;</b>{{dummymovieDeatials.moviePrice}}</h2>
+      <h2><b class="text-danger">Genre:&ensp;</b>{{dummymovieDeatials.movieGenreCategory}}</h2>
+      <h2><b class="text-danger">Content:&ensp;</b>{{dummymovieDeatials.movieContent}}</h2>
+
+    </div>
+  
+</div>
+ 
+</div>
+
+<div class="movie-video">
+  <video *ngIf="dummymovieDeatials.movieVideoPath"  controls style="border-radius: 15px;">
+    <source [src]="'../assets/Images/videos/' + dummymovieDeatials.movieVideoPath" type="video/mp4"/>
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+
+                            
+
+<app-footer></app-footer>

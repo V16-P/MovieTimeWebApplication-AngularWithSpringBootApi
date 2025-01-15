@@ -1,0 +1,10 @@
+footer {
+    background: linear-gradient(to top, #1a1a1a, #343a40); /* Subtle gradient */
+  }
+  footer img {
+    border-radius: 10px; /* Rounded edges for the logo */
+  }
+  footer a:hover {
+    color: #9a1919; /* Highlight on hover */
+  }
+  

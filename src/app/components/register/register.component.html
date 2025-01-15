@@ -1,0 +1,188 @@
+<app-navbar></app-navbar>
+<br><br><br><br><br>
+
+<body>
+  <div class="container">
+    <div class="title text-danger" style="text-align: center;">Registration</div>
+    <div class="content">
+      <form #reg="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="user-details">
+          <!-- Username -->
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input 
+              type="text" 
+              placeholder="Enter your username" 
+              name="username" 
+              [(ngModel)]="user.userName" 
+              #username="ngModel" 
+              required 
+              minlength="3">
+            <p class="text-danger" *ngIf="username.touched && username.invalid">
+              <span *ngIf="username.errors?.['required']">Please enter your username.</span>
+              <span *ngIf="username.errors?.['minlength']">Username must be at least 3 characters long.</span>
+            </p>
+          </div>
+
+          <!-- Email -->
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input 
+              type="email" 
+              placeholder="Enter your email" 
+              name="email" 
+              [(ngModel)]="user.userEmail" 
+              #email="ngModel" 
+              required 
+              pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$">
+            <p class="text-danger" *ngIf="email.touched && email.invalid">
+              <span *ngIf="email.errors?.['required']">Please enter your email.</span>
+              <span *ngIf="email.errors?.['pattern']">Please enter a valid email address with an "&#64;"" symbol.</span>
+            </p>
+          </div>
+          
+
+          <!-- Phone Number -->
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input 
+              type="tel" 
+              placeholder="Enter your phone number" 
+              name="phone" 
+              [(ngModel)]="user.userPhone" 
+              #phone="ngModel" 
+              required 
+              pattern="[0-9]{10}">
+            <p class="text-danger" *ngIf="phone.touched && phone.invalid">
+              <span *ngIf="phone.errors?.['required']">Please enter your phone number.</span>
+              <span *ngIf="phone.errors?.['pattern']">Phone number must be 10 digits.</span>
+            </p>
+          </div>
+
+          <!-- Password -->
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input 
+              type="password" 
+              placeholder="Enter your password" 
+              name="password" 
+              [(ngModel)]="user.userPassword" 
+              #password="ngModel" 
+              required 
+              minlength="6">
+            <p class="text-danger" *ngIf="password.touched && password.invalid">
+              <span *ngIf="password.errors?.['required']">Please enter your password.</span>
+              <span *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long.</span>
+            </p>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input 
+              type="password" 
+              placeholder="Confirm your password" 
+              name="confirmPassword" 
+              [(ngModel)]="user.userConfirmPassword" 
+              #confirmPassword="ngModel" 
+              required>
+            <p class="text-danger" *ngIf="confirmPassword.touched && confirmPassword.invalid || user.userPassword !== user.userConfirmPassword">
+              <span *ngIf="confirmPassword.errors?.['required']">Please confirm your password.</span>
+              <span *ngIf="user.userPassword !== user.userConfirmPassword">Passwords do not match.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Gender Section -->
+        <div class="gender-details">
+          <span class="gender-title">Gender</span>
+          <input 
+            type="radio" 
+            name="gender" 
+            value="Male" 
+            [(ngModel)]="user.userGender" 
+            #gender="ngModel" 
+            required 
+            id="gender-dot-1">
+          <input 
+            type="radio" 
+            name="gender" 
+            value="Female" 
+            [(ngModel)]="user.userGender" 
+            required 
+            id="gender-dot-2">
+          <input 
+            type="radio" 
+            name="gender" 
+            value="Prefer not to say" 
+            [(ngModel)]="user.userGender" 
+            required 
+            id="gender-dot-3">
+          <div class="category">
+            <label for="gender-dot-1">
+              <span class="dot one"></span>
+              <span class="gender">Male</span>
+            </label>
+            <label for="gender-dot-2">
+              <span class="dot two"></span>
+              <span class="gender">Female</span>
+            </label>
+            <label for="gender-dot-3">
+              <span class="dot three"></span>
+              <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+          <p class="text-danger" *ngIf="gender.touched && !user.userGender">Please select your gender.</p>
+        </div>
+
+        <!-- User Type Section -->
+        <div class="userType-details">
+          <span class="userType-title">User Type</span>
+          <input 
+            type="radio" 
+            name="userType" 
+            value="User" 
+            [(ngModel)]="user.userType" 
+            #userType="ngModel" 
+            required 
+            id="usertype-dot-1">
+          <input 
+            type="radio" 
+            name="userType" 
+            value="Admin" 
+            [(ngModel)]="user.userType" 
+            required 
+            id="usertype-dot-2">
+          <div class="UserTypecategory">
+            <label for="usertype-dot-1">
+              <span class="dot one"></span>
+              <span class="UserType">User</span>
+            </label>
+            <label for="usertype-dot-2">
+              <span class="dot two"></span>
+              <span class="UserType">Admin</span>
+            </label>
+          </div>
+          <p class="text-danger" *ngIf="userType.touched && !user.userType">Please select a user type.</p>
+        </div>
+
+        <!-- Submit Button -->
+        <!-- <div class="button">
+          <input type="submit" value="Register" [disabled]="reg.invalid">
+        </div> -->
+        <div class="button" style="display: flex; justify-content: center;">
+          <button type="submit" [disabled]="reg.invalid" class="btn btn-danger" style="width: 150px; text-align: center;">
+            Register
+          </button>
+        </div>
+        
+        <div>
+         <p style="text-align: center;"> Already a member? <a href="/login">Sign in now</a></p>
+       </div>
+        <!-- <p [ngClass]="clr">{{msg}}</p> -->
+      </form>
+    </div>
+  </div>
+</body>
+
+<br><app-footer></app-footer>

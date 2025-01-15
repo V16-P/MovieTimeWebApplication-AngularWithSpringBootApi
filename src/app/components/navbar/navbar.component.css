@@ -1,0 +1,11 @@
+nav .active{
+  color: rgb(166, 24, 24);
+  }
+
+ nav :hover{
+  color: rgb(243, 242, 248);
+ }
+ /* Check for hidden visibility */
+.navbar-nav .nav-item button {
+  visibility: visible !important;
+}

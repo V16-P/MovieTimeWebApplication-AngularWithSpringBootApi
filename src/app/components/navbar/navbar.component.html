@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top mb-5">
+  <div class="container-fluid d-flex justify-content-between">
+    <!-- Logo -->
+    <a class="navbar-brand" routerLink="/">
+      <img src="../assets/Images/navImg/logo1.jpg" alt="Logo" style="width:155px;height:55px;" class="rounded-pill">
+    </a>
+
+    <!-- Toggle Button for Mobile View -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <ng-container *ngFor="let menu of navbar">
+          <li class="nav-item ms-3" *ngIf="menu.sub.length === 0">
+            <a class="nav-link" [routerLink]="menu.url" routerLinkActive="active">
+              <h3 class="fw-bold" style="margin-top: 15px;">{{menu.name}}</h3>
+            </a>
+          </li>
+        </ng-container>
+      </ul>
+
+      <!-- Search Bar -->
+      <div class="input-group rounded-pill w-20 ms-3">
+        <input 
+          type="search" 
+          class="form-control border-danger text-danger" 
+          placeholder="Search" 
+          [(ngModel)]="searchName" 
+          aria-label="Search" 
+          aria-describedby="search-addon">
+        <span 
+          class="input-group-text border-danger" 
+          id="search-addon" 
+          (click)="searchMovies()">
+          <i class="fas fa-search text-danger"></i>
+        </span>
+      </div>
+      
+
+      <!-- Buttons -->
+      <ul class="navbar-nav ms-4">
+        <li class="nav-item">
+          <button mat-raised-button routerLink="/register" class="ms-2 me-2 fw-bold" style="background-color: #c34949; color: rgb(248, 248, 251); width: 90px;">REGISTER</button>
+        </li>
+        <li class="nav-item">
+          <button mat-raised-button routerLink="/login" class="ms-3 me-3 fw-bold" style="background-color: #c34949; color: rgb(248, 248, 251); width: 90px;">LOGIN</button>
+        </li>
+        <li class="nav-item">
+          <button mat-raised-button (click)="logout()" class="ms-2 me-2 fw-bold" style="background-color: #c34949; color: rgb(248, 248, 251); width: 90px;">LOGOUT</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

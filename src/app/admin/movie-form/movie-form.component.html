@@ -1,0 +1,147 @@
+<app-adminnavbar></app-adminnavbar>
+<br>
+<br>
+<br>
+<br>
+<div class="main-content mb-5">
+  <div class="section-content section-content-p30">
+    <div class="container">
+      <h2 class="text-danger" style="text-align: center;"><b>{{ editable ? 'Update Movie' : 'Add New Movie' }}</b></h2>
+      <hr />
+      <div *ngIf="!movie.movieName && editable">Loading movie details...</div>
+      <form *ngIf="movie.movieName || !editable" #movieform="ngForm" novalidate (ngSubmit)="onSubmit()">        <!-- Movie Name -->
+        <div class="form-group">
+          <label for="moviename">Name:</label>
+          <input
+            type="text"
+            id="moviename"
+            name="moviename"
+            #moviename="ngModel"
+            [(ngModel)]="movie.movieName"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <!-- Movie Language -->
+        <div class="form-group">
+          <label for="movieLanguage">Language:</label>
+          <select
+            id="movieLanguage"
+            name="movieLanguage"
+            #movieLanguage="ngModel"
+
+            [(ngModel)]="movie.movieLanguageCategory"
+            class="form-control"
+            required
+          >
+            <option value="Telugu">Telugu</option>
+            <option value="English">English</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Tamil">Tamil</option>
+            <option value="Oriya">Oriya</option>
+            <option value="Malayalam">Malayalam</option>
+          </select>
+        </div>
+
+        <!-- Movie Genre -->
+        <div class="form-group">
+          <label for="movieGenre">Genre:</label>
+          <select
+            id="movieGenre"
+            name="movieGenre"
+            #movieGenre="ngModel"
+
+            [(ngModel)]="movie.movieGenreCategory"
+            class="form-control"
+            required
+          >
+            <option value="Action">Action</option>
+            <option value="Drama">Drama</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Horror">Horror</option>
+          </select>
+        </div>
+
+        <!-- Movie Video -->
+        <div class="form-group">
+          <label for="movieVideo">Video:</label>
+          <input
+            type="url"
+            id="movieVideo"
+            name="movieVideo"
+            #movieVideo="ngModel"
+
+            [(ngModel)]="movie.movieVideoPath"
+            accept="video/mp4"
+            class="form-control"
+          />
+          <small *ngIf="editable && movie.movieVideoPath">
+            Current Video: {{ movie.movieVideoPath }}
+          </small>
+        </div>
+
+        <!-- Ticket Price -->
+        <div class="form-group">
+          <label for="ticketPrice">Ticket Price:</label>
+          <input
+            type="number"
+            id="ticketPrice"
+            name="ticketPrice"
+            #ticketPrice="ngModel"
+
+            [(ngModel)]="movie.moviePrice"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <!-- Movie Content -->
+        <div class="form-group">
+          <label for="movieContent">Movie Content:</label>
+          <input
+            type="text"
+            id="movieContent"
+            name="movieContent"
+            [(ngModel)]="movie.movieContent"
+            class="form-control"
+            #movieContent="ngModel"
+
+            required
+          />
+        </div>
+
+        <!-- Movie Image -->
+        <div class="form-group">
+          <label for="movieImage">Image:</label>
+          <input
+            type="url"
+            id="movieImage"
+            name="movieImage"
+            #movieImage="ngModel"
+
+            [(ngModel)]="movie.movieImagePath"
+            accept="image/x-png,image/gif,image/jpeg"
+            class="form-control"
+          />
+          <small *ngIf="editable && movie.movieImagePath">
+            Current Image: {{ movie.movieImagePath }}
+          </small>
+        </div>
+
+        <br />
+
+        <!-- Submit Button -->
+        <div class="form-group">
+          <button class="btn btn-success btn-lg" type="submit" [disabled]="movieform.invalid">
+            {{ editable ? 'Update Movie' : 'Add Movie' }}
+          </button> &nbsp; &nbsp; 
+          <button class="btn btn-danger btn-lg"(click)="cancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
