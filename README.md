@@ -1,7 +1,12 @@
 # MovieTime
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
-Using Tools : Angulara, Spring Boot, MY Sql
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2. and with out standalone
+
+# Tools : Angular, Spring Boot, MY Sql.
+
+#SpringBoot Backend Code Link = https://github.com/V16-P/MovieTime-SpringBootWithAngular.git
+
+#Description: Movie Time is a web application where the purchase and sale of Movie Tickets take place. Through This project we are planning to digitalize this process by Online Tickets Booking.
 
 ## Development server
 
